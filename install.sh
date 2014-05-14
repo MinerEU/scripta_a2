@@ -6,6 +6,13 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+
+is_raspbian=`cat /etc/os-release|grep Raspbian`
+if [ "$is_raspbian" == "" ]; then
+   echo "This script is designed for Raspberry Pi only. Existing now " 1>&2
+   exit 1
+fi
+
 echo "prepare dependencies";
 apt-get update
 apt-get install -y lighttpd unzip wget openssl
