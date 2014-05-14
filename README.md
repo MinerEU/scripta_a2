@@ -1,6 +1,6 @@
 Original work refer to https://github.com/scriptamining/scripta
 
-# MinerEU modified version dedicatd for [MinerEU.com](MinerEU.com) & [JustAsic.com](justasic.com)
+# MinerEU modified version dedicatd for [MinerEU.com](https://MinerEU.com) & [JustAsic.com](https://justasic.com)
 
 ## For technical reader Setups to install:
 
