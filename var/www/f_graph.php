@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ( !isset($_SESSION['_logged_']) || $_SESSION['_logged_'] === false ) {
+if ( "127.0.0.1"!=$_SERVER['REMOTE_ADDR'] && (!isset($_SESSION['_logged_']) || $_SESSION['_logged_'] === false) ) {
         echo json_encode(false);
         die();
 }
