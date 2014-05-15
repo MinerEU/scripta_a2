@@ -67,5 +67,9 @@ chmod -R +x  /opt/scripta/startup/
 #echo "Give sudo to www-data. Note , if you do not want this, please run :"
 #echo "rm /etc/sudoers.d/wwwdata"
 #echo "www-data ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/wwwdata
+#init the graph
+su www-data -c "/usr/bin/php5 /opt/scripta/etc/cron.d/5min/hashrate"
+curl -sSfk https://127.0.0.1/f_graph.php
+
 
 echo `date +"%Y-%m-%d %T "`"ALL Done!!!"
