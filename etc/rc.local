@@ -23,8 +23,8 @@ echo " /        \  \___|  | \/  |  |_> >  |  / __ \_ "
 echo "/_______  /\___  >__|  |__|   __/|__| (____  / "
 echo "        \/     \/         |__|             \/  "
 
-printf "Connect to http://%s to manage Scripta.\n" "$_IP"
-printf "Happy mining!\n"
+printf "Connect to http://%s to manage Scripta. \n" "$_IP"
+printf "This is the MinerEU modified edition for MinerEU.com and JustAsic.com \n"
 
 sudo /opt/scripta/startup/miner-start.sh &
 

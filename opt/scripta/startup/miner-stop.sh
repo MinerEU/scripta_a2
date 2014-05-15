@@ -1,3 +1,3 @@
-#sudo kill $(cat /opt/scripta/var/cgminer.lock)
-
+#!/bin/sh
+echo `date +"%Y-%m-%d %T"`" stopping cgminer"
 sudo /usr/bin/screen -S cgminer -X quit

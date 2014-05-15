@@ -1,14 +1,14 @@
-10 *     * * *     root   /usr/sbin/ntpdate -u 0.uk.pool.ntp.org
+#update system time. every hour
+0 *     * * *     root   /usr/sbin/ntpdate -u 0.uk.pool.ntp.org
 
-* *     * * *     root  /opt/scripta/startup/miner-start.sh
-* *     * * *     root  sleep 10;/opt/scripta/startup/miner-start.sh
-* *     * * *     root  sleep 20;/opt/scripta/startup/miner-start.sh
-* *     * * *     root  sleep 30;/opt/scripta/startup/miner-start.sh
-* *     * * *     root  sleep 40;/opt/scripta/startup/miner-start.sh
-* *     * * *     root  sleep 50;/opt/scripta/startup/miner-start.sh
+#watch dog constantly check the cgminer instance to make sure it is always running.
+#every 30 seconds
+* *     * * *     root  /opt/scripta/startup/miner-start.sh 2>&1 |/usr/bin/logger -t minereu_watchdog
+* *     * * *     root  sleep 30;/opt/scripta/startup/miner-start.sh 2>&1 |/usr/bin/logger -t minereu_watchdog
 
-*/5 * * * * www-data /usr/bin/php5 /opt/scripta/etc/cron.d/5min/ALERTdeviceCount
-*/5 * * * * www-data /usr/bin/php5 /opt/scripta/etc/cron.d/5min/ALERThashrate
-*/5 * * * * www-data /usr/bin/php5 /opt/scripta/etc/cron.d/5min/hashrate
-*/5 * * * * www-data /usr/bin/php5 /opt/scripta/etc/cron.d/5min/temp
+#report and hashrate update
+*/5 * * * * www-data /usr/bin/php5 /opt/scripta/etc/cron.d/5min/ALERTdeviceCount 2>&1 |/usr/bin/logger -t scripta_background
+*/5 * * * * www-data /usr/bin/php5 /opt/scripta/etc/cron.d/5min/ALERThashrate 2>&1 |/usr/bin/logger -t scripta_background
+*/5 * * * * www-data /usr/bin/php5 /opt/scripta/etc/cron.d/5min/hashrate 2>&1 |/usr/bin/logger -t scripta_background
+*/5 * * * * www-data /usr/bin/php5 /opt/scripta/etc/cron.d/5min/temp 2>&1 |/usr/bin/logger -t scripta_background
 #
