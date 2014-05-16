@@ -10,7 +10,8 @@ Original work refer to https://github.com/scriptamining/scripta
 ```
 ssh pi@your_a2_ip_address
 ```
-  * Password for batches before 10th May 2014: **raspberrypi**
+  If you use a new SDCard, simply login and run our script below, if you use innosilicon's SD card, it is locked with a different password. and the IP address might be labelled 
+  * Password for batches before 10th May 2014: **raspberry** or **stone2014**
   * Password for batches after 10th May 2014: **innosilicon**
 
 ### 2. Once you are in , switch to root
