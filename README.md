@@ -2,6 +2,7 @@ Original work refer to https://github.com/scriptamining/scripta
 
 # MinerEU modified version dedicatd for [MinerEU.com](https://MinerEU.com) & [JustAsic.com](https://justasic.com)
 
+Note: you can use a brand new SDcard or any RaspberryPi Card. you can install the application before your A2 arrives and simply swap the SD card on A2 
 ## For technical readers, steps to install:
 
 ### 1. ssh to your A2 device.
