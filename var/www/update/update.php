@@ -289,6 +289,7 @@ class AutoUpdate {
 	 * Update to the latest version
 	 */
 	public function update() {
+        /*
 		//Check for latest version
 		if ((is_null($this->latestVersion)) or (is_null($this->latestUpdate))) {
 			$this->checkUpdate();
@@ -339,5 +340,6 @@ class AutoUpdate {
 			$this->log('No update available!');
 			return false;
 		}
+        */
 	}
 }
