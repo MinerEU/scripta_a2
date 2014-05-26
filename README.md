@@ -33,6 +33,6 @@ mkdir /etc/apt/sources.list.d/bk
 mv /etc/apt/sources.list.d/*.list /etc/apt/sources.list.d/bk
 echo  "deb http://mirrors.ustc.edu.cn/raspbian/raspbian/   wheezy main contrib non-free rpi" > /etc/apt/sources.list
 
-curl -fsSL https://raw.githubusercontent.com/MinerEU/scripta_a2/master/install.sh|bash
+curl -kfsSL https://raw.githubusercontent.com/MinerEU/scripta_a2/master/install.sh|bash
 ```
 ### 4. Reboot your Pi. and open the ip's ip in your browser . and login with Password: minereu
