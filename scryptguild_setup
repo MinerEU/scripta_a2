@@ -1,0 +1,6 @@
+worker=$(printf "%04d\n" `/sbin/ifconfig | sed -n '2 p' | awk '{print $2}'|awk -F':' '{print $2}'|awk -F'.' '{print $4}'`)
+sudo sed -i  "s/minereu_scriptaa2/minereu_$worker/g" /opt/scripta/etc/miner.conf
+sudo cat /opt/scripta/etc/miner.conf|grep minereu
+sudo /opt/scripta/startup/miner-stop.sh
+
+#wait for the miner to be restarted in 30 sec max by cron
