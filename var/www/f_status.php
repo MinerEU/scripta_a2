@@ -17,9 +17,20 @@ include('inc/cgminer.inc.php');
 //$r['summary'] = cgminer('summary', '')['SUMMARY'];
 $devs=cgminer('devs');
 $pools=cgminer('pools');
+$stats=cgminer('stats');
 
 if(!empty($devs['data']['DEVS'])){
   $r['status']['devs'] = $devs['data']['DEVS'];
+  foreach ($r['status']['devs'] as $id => $dev) {
+      //var_dump($stats['data']['STATS'][$id]["TEMP(AVG)"]);
+      $r['status']['devs'][$id]['Temperature']=$stats['data']['STATS'][$id]["TEMP(AVG)"];
+      $r['status']['devs'][$id]['Temperatures']=$stats['data']['STATS'][$id]["TEMP(SOLO)"];
+      $r['status']['devs'][$id]['CoreT']=$stats['data']['STATS'][$id]["CORES(TOTAL)"];
+      $r['status']['devs'][$id]['CoreS']=$stats['data']['STATS'][$id]["CORES(SOLO)"];
+
+
+  }
+
 }
 else{
   $r['status']['devs'] = array();

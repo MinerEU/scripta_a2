@@ -45,7 +45,10 @@
     <tr>
       <th>Name</th>
       <th>ID</th>
-      <th>Temp</th>
+      <th>Temp(AVG)</th>
+      <th>Temp(Per Chip)</th>
+      <th>Total Cores</th>
+      <th>Cores(Per Chip)</th>
       <th>Hashrate 5s</th>
       <th>Hashrate av</th>
       <th>Accepted</th>
@@ -60,6 +63,9 @@
       <td ng-bind="d.Name" class='text-left' ng-class="{danger:d.MHS5s>0 && (d.Rejected/d.TotalShares > .05 || d.HardwareErrors/d.TotalShares > .1)}"></td>
       <td ng-bind="d.ID"></td>
       <td>{{d.Temperature}} °C</td>
+      <td>{{d.Temperatures}}</td>
+      <td>{{d.CoreT}}</td>
+      <td>{{d.CoreS}}</td>
       <td>{{d.MHS5s|mhs}}h/s</td>
       <td>{{d.MHSav|mhs}}h/s</td>
 	  <!-- <td>{{d.KHS5s|mhs}}h/s</td>
@@ -73,7 +79,9 @@
   </tbody>
   <tfoot>
     <tr>
-      <th colspan="3" class='text-left'><span class="pull-right">{{status.dtot.devices}} devs</span>Totals</th>
+      <th colspan="6" class='text-left'><span class="pull-right">{{status.dtot.devices}} devs</span>Totals</th>
+
+
       <th>{{status.dtot.MHS5s|mhs}}h/s</th>
       <th>{{status.dtot.MHSav|mhs}}h/s</th>
       <th ng-bind="status.dtot.Accepted"></th>
