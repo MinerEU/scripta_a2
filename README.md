@@ -1,8 +1,8 @@
 Original work refer to https://github.com/scriptamining/scripta
 
 # Main feature
-### 1. Scripta interface: this gives you all the goodies that scripta offers
-### 2. Improvements for A2chips: A2 chip temperature , A2 chip cores etc
+ 1. Scripta interface: this gives you all the goodies that scripta offers
+ 2. Improvements for A2chips: A2 chip temperature , A2 chip cores etc
 
 # INSTALL NOTE:
 ## A2BOX && A2MINI  MinerEU modified version dedicatd for [MinerEU.com](https://MinerEU.com) 
