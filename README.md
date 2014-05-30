@@ -1,6 +1,10 @@
 Original work refer to https://github.com/scriptamining/scripta
 
-# A2BOX && A2MINI  MinerEU modified version dedicatd for [MinerEU.com](https://MinerEU.com) & [JustAsic.com](https://justasic.com)
+# Main feature
+### 1. Scripta interface: this gives you all the goodies that scripta offers
+### 2. Improvements for A2chips: A2 chip temperature , A2 chip cores etc
+
+## A2BOX && A2MINI  MinerEU modified version dedicatd for [MinerEU.com](https://MinerEU.com) & [JustAsic.com](https://justasic.com)
 
 Note: you can use a brand new SDcard or any RaspberryPi Card. you can install the application before your A2 arrives and simply swap the SD card on A2 
 ## For technical readers, steps to install:
