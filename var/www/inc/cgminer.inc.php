@@ -13,12 +13,12 @@ openlog("myScriptLog", LOG_PID | LOG_PERROR, LOG_LOCAL0);
  switch ( $cmd ) {
 	case '0':
 		openlog("myScriptLog", LOG_PID | LOG_PERROR, LOG_LOCAL0);
-		exec("/opt/scripta/startup/miner-stop.sh");
+		exec("sudo /opt/scripta/startup/miner-stop.sh");
 		syslog(LOG_WARNING, "Executed exec");
 		closelog();
 	break;
 	case '1':
-		exec("nohup /opt/scripta/startup/miner-start.sh > /dev/null 2>&1 &");
+		exec("sudo /opt/scripta/startup/miner-start.sh");
 	break;
 	}	
 return true;
