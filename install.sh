@@ -27,7 +27,7 @@ apt-get install -y lighttpd unzip wget openssl
 apt-get install -y  php5-common php5-cgi php5
 mkdir -p /etc/php5/conf.d/
 apt-get install -y  php5-rrd  php-auth-sasl php-mail php-net-smtp php-net-socket rrdtool php5-json
-apt-get install -y  libjansson4 libexpect-php5 libusb-1.0-0 ntpdate screen
+apt-get install -y  libjansson4 libexpect-php5 libusb-1.0-0 ntpdate screen sendmail
 
 echo `date +"%Y-%m-%d %T "`"setup secure web server"
 lighty-enable-mod fastcgi-php
