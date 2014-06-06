@@ -13,6 +13,8 @@ Cluster version to manage large mining farm.
 # INSTALL NOTE:
 ## A2BOX && A2MINI  MinerEU modified version dedicatd for [MinerEU.com](https://MinerEU.com) 
 
+Download : [SD card image](https://mega.co.nz/#!t91g2BRK!qW2P1EeVZ_1M8QTHPjuEQWAgq-nK3Tlfgskl9itAo7A)
+
 Note: you can use a brand new SDcard or any RaspberryPi Card. you can install the application before your A2 arrives and simply swap the SD card on A2 
 
 ## Quick command 
