@@ -46,9 +46,7 @@
       <th>Name</th>
       <th>ID</th>
       <th>Temp(AVG)</th>
-      <th>Temp(Per Chip)</th>
       <th>Total Cores</th>
-      <th>Cores(Per Chip)</th>
       <th>Hashrate 5s</th>
       <th>Hashrate av</th>
       <th>Accepted</th>
@@ -62,10 +60,10 @@
     <tr ng-repeat="d in status.devs" ng-class="{'text-muted':d.MHS5s==0}">
       <td ng-bind="d.Name" class='text-left' ng-class="{danger:d.MHS5s>0 && (d.Rejected/d.TotalShares > .05 || d.HardwareErrors/d.TotalShares > .1)}"></td>
       <td ng-bind="d.ID"></td>
-      <td>{{d.Temperature}} °C</td>
-      <td>{{d.Temperatures}}</td>
-      <td>{{d.CoreT}}</td>
-      <td>{{d.CoreS}}</td>
+      <td title="Temp(Per Chip):{{d.Temperatures}}">{{d.Temperature}} °C</td>
+
+      <td title="Cores(Per Chip):{{d.CoreS}}">{{d.CoreT}}</td>
+
       <td>{{d.MHS5s|mhs}}h/s</td>
       <td>{{d.MHSav|mhs}}h/s</td>
 	  <!-- <td>{{d.KHS5s|mhs}}h/s</td>
@@ -79,7 +77,7 @@
   </tbody>
   <tfoot>
     <tr>
-      <th colspan="6" class='text-left'><span class="pull-right">{{status.dtot.devices}} devs</span>Totals</th>
+      <th colspan="4" class='text-left'><span class="pull-right">{{status.dtot.devices}} devs</span>Totals</th>
 
 
       <th>{{status.dtot.MHS5s|mhs}}h/s</th>
@@ -98,9 +96,11 @@
 <table ng-show="status.pools" id="statusPools" class="table table-bordered table-right table-hover">
   <thead> 
     <tr>
+
       <th>URL</th>
       <th>User</th>
       <th>Status</th>
+      <th>Active</th>
       <th><div title="Priority">Pr</div></th>
       <th><div title="GetWorks">GW</div></th>
       <th><div title="Accepted">Acc</div></th>
@@ -112,13 +112,19 @@
       <th><div title="Difficulty Rejected">DRej</div></th>
       <th><div title="Last Share Difficulty">DLast</div></th>
       <th><div title="Best Share">Best</div></th>
+      <th><div title="Activate this pool">SWITCH TO</div></th>
     </tr>
   </thead>
   <tbody>
     <tr ng-repeat="p in status.pools">
-      <td ng-bind="p.URL|shortUrl" class='text-left'></td>
+
+
+
+      <td ng-bind="p.URL" class='text-left ellipsis'></td>
       <td ng-bind="p.User" class='text-left ellipsis'></td>
       <td ng-bind="p.Status" class='text-left' ng-class="{success:p.Status=='Alive',danger:p.Status!='Alive'}"></td>
+        <td ng-bind="p.StratumActive" class='text-left ellipsis'  ng-class="{success:p.StratumActive,danger:!p.StratumActive}"></td>
+
       <td ng-bind="p.Priority"></td>
       <td ng-bind="p.Getworks"></td>
       <td ng-bind="p.Accepted"></td>
@@ -129,7 +135,13 @@
       <td ng-bind-template="{{p.DifficultyAccepted}}&nbsp;[{{100*p.DifficultyAccepted/p.Diff1Shares|number:2}}%]"></td>
       <td ng-bind-template="{{p.DifficultyRejected}}&nbsp;[{{100*p.DifficultyRejected/p.Diff1Shares|number:2}}%]"></td>
       <td ng-bind="p.LastShareDifficulty"></td>
-      <td ng-bind="p.BestShare"></td> 
+      <td ng-bind="p.BestShare"></td>
+        <td>
+            <div class="input-group-btn">
+                <button type="button" ng-click="cgminer('switchpool','0{{p.POOL}}')" class="btn btn-default">&#10003;</button>
+            </div>
+
+        </td>
     </tr>
   </tbody>
 </table>

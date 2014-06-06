@@ -150,7 +150,7 @@ angular.module('Scripta.controllers', [])
 })
 
 
-.controller('CtrlStatus', function($scope,$http) {
+.controller('CtrlStatus', function($scope,$http,$timeout) {
   $scope.status.extra=true;
   $scope.num=0;
 
@@ -168,6 +168,20 @@ angular.module('Scripta.controllers', [])
       Alertify.log.error("Update graph ended in error: https enabled?");
     });
   }
+
+$scope.cgminer = function(command,parameter) {
+    $scope.tick();
+
+    var execute = function(){
+        $http.get('f_miner.php?command='+(command || 'summary')+'&parameter='+parameter).success(function(d){
+            if(d.info){
+                angular.forEach(d.info, function(v,k) {Alertify.log.create(v.type, v.text);});
+            }
+            $scope.tick();
+        });
+    }
+    $timeout(execute, 1000);
+};
 })
 
 

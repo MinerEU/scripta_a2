@@ -4,6 +4,11 @@
         "value": true
     },
     {
+        "key": "api-allow",
+        "value":  "W:127.0.0.1"
+    },
+
+    {
         "key": "api-port",
         "value": "4028"
     },

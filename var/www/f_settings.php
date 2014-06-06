@@ -55,12 +55,22 @@ elseif (!empty($_REQUEST['settings'])) {
 // Manage pools
 elseif (!empty($_REQUEST['pools'])) {
   $newdata   = json_decode($_REQUEST['pools'], true);
-  $r['data'] = json_decode(@file_get_contents($configPools), true);
 
+  $r['data'] = json_decode(@file_get_contents($configPools), true);
+  if(is_array($newdata)){
+      //var_dump($newdata);
+      usort($newdata,'cmp');
+      //var_dump($newdata);
+  }else{
+      usort($r['data'],'cmp');
+  }
+  //
   // Overwrite current with new pools
   if(!empty($newdata)&&is_array($newdata)){
     file_put_contents($configPools, json_encode($newdata, JSON_PRETTY_PRINT | JSON_NUMERIC_CHECK));
-    minerConfigGenerate();
+
+     minerConfigGenerate();
+
     $r['data']=$newdata;
     $r['info'][]=array('type' => 'success', 'text' => 'Pools config saved');
   }
@@ -123,4 +133,9 @@ function minerConfigGenerate(){
   $miner['pools']= json_decode(@file_get_contents($configPools), true);
   file_put_contents($configMiner, json_encode($miner, JSON_PRETTY_PRINT));
 }
+
+function cmp($a, $b) {
+    return $a["priority"] - $b["priority"];
+}
+
 ?>

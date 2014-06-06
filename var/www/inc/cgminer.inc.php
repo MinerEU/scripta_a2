@@ -38,6 +38,7 @@ function cgminer($command='summary',$parameter=false){
   }
   // Socket success
   else{
+    //var_dump($c);
     fwrite($client, json_encode($c));
     $response = stream_get_contents($client);
     fclose($client);

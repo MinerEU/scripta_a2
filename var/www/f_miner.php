@@ -21,6 +21,7 @@ elseif(empty($_REQUEST['parameter'])){
   $r = cgminer($_REQUEST['command']);
 }
 else{
+
   $r = cgminer($_REQUEST['command'],$_REQUEST['parameter']);
 }
 

@@ -12,13 +12,9 @@
       Click to add pool to pool's list
     </p>
     <div class="list-group">
-<a href="" ng-click="poolAdd({url:'stratum+tcp://stratum.scryptguild.com:3333',pass:'x'})" class="list-group-item">scryptguild.com</a>
-<a href="" ng-click="poolAdd({url:'stratum+tcp://stratum01.hashco.ws:8888',pass:'x'})" class="list-group-item">hashco.ws</a>
-<a href="" ng-click="poolAdd({url:'stratum+tcp://eu.wafflepool.com:3332',pass:'x'})" class="list-group-item">Wafflepool EU</a>
-<a href="" ng-click="poolAdd({url:'stratum+tcp://us.litecoinpool.org:3333',pass:'x'})" class="list-group-item">Litecoinpool - New York (USA)</a>
-<a href="" ng-click="poolAdd({url:'stratum+tcp://eu-1.liteguardian.com:3334',pass:'x'})" class="list-group-item">Liteguardian (EU)</a>
-<a href="" ng-click="poolAdd({url:'stratum+tcp://usa-1.liteguardian.com:3334',pass:'x'})" class="list-group-item">Liteguardian (USA)</a>
-
+<a href="" ng-click="poolAdd({url:'stratum+tcp://stratum.scryptguild.com:3333',pass:'x',priority:'30'})" class="list-group-item">scryptguild.com</a>
+<a href="" ng-click="poolAdd({url:'stratum+tcp://stratum01.hashco.ws:8888',pass:'x',priority:'30'})" class="list-group-item">hashco.ws</a>
+<a href="" ng-click="poolAdd({url:'stratum+tcp://eu.wafflepool.com:3332',pass:'x',priority:'30'})" class="list-group-item">Wafflepool EU</a>
     </div>
   </div>
   <div class="col-sm-9 col-md-8 pull-right">
@@ -32,10 +28,10 @@
 					Ordered from gentle to rough.
 				</p>
 				<div class="list-group" ng-show="minerRestart">
-					<a title="Reset miner" href="" ng-click="cgminer('restart')" class="list-group-item">Reset</a>
-					<a title="Start miner" href="" ng-click="cgminerHardCtl('1')" class="list-group-item">Start</a>
-					<a title="Stop miner" href="" ng-click="cgminerHardCtl('0')" class="list-group-item">Stop</a>
-					<a title="Shutdown your PI (be careful!)" href="" id="link_shutdown" onclick="ctrl_host(1)" class="list-group-item">Shutdown</a>
+					<a title="This will issue an RPC command to cgminer so it restart itself. no new parameter will be picked up." href="" ng-click="cgminer('restart')" class="list-group-item">Cgminer soft reset (RPC)</a>
+					<!--<a title="Start miner" href="" ng-click="cgminerHardCtl('1')" class="list-group-item">Start</a> -->
+					<a title="Restart miner to take new configuration options. this is to stop the cgminer process and then start this linux process again with interval less than 30 sec. be patient" href="" ng-click="cgminerHardCtl('0')" class="list-group-item">Restart cgminer linux process(30s)</a>
+					<!--<a title="Shutdown your PI (be careful!)" href="" id="link_shutdown" onclick="ctrl_host(1)" class="list-group-item">Shutdown</a> -->
 					<a title="Reboot your PI" href="" id="link_reboot"  onclick="ctrl_host(0)" class="list-group-item">Reboot</a>
 				</div>
 			</div>
@@ -49,28 +45,34 @@
     <form name="poolForm" class="form-horizontal">
       <div class="row">
         <label class="col-sm-5">URL</label>
-        <label class="col-sm-5">User</label>
+        <label class="col-sm-2">User</label>
         <label class="col-sm-2">Pass</label>
+        <label class="col-sm-2">Priority</label>
       </div>
       <div class="form-group" ng-repeat="pool in pools">
         <div class="col-sm-5">
           <input type="text" ng-model="pool.url" class="form-control" required>
         </div>
-        <div class="col-sm-5">
+        <div class="col-sm-2">
           <input type="text" ng-model="pool.user" class="form-control" required>
         </div>
+      <div class="col-sm-2">
+          <input type="text" ng-model="pool.pass" class="form-control" required>
+      </div>
         <div class="col-sm-2">
           <div class="input-group">
-            <input type="text" ng-model="pool.pass" class="form-control" required>
+            <input type="text" ng-model="pool.priority" class="form-control" required>
             <div class="input-group-btn">
               <button type="button" ng-click="poolRemove($index)" class="btn btn-default pull-right">&times;</button>
             </div>
+
           </div>
         </div>
+
       </div>
       <button type="button" class="btn btn-default" ng-click="poolBack()">Reload pools</button>
       <button type="button" class="btn btn-default" ng-click="poolAdd()">Add pool</button>
       <button type="button" ng-show="poolForm.$dirty && poolForm.$valid" class="btn btn-success" ng-click="poolSave()">Save pools</button>
     </form>
   </div>
-</divdadas
+</div>
