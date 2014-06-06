@@ -8,8 +8,8 @@ include('inc/functions.inc.php');
 
 
 $stats = cgminer("devs", "");
-$devs = $stats['DEVS'];
 
+$devs = $stats["data"]["DEVS"];
 $devcount = deviceCount($devs);
 
 
@@ -31,7 +31,7 @@ if ($settings['alertEnable']) {
 
 		// Send an email if the devices dont match and set the deviceWarn falt
 
-		$message = "Scripta notification: " . $settings['alertDevice'] . ": Unexpected device count " . $devcount . " (Expected " . $settings['miningExpDev'] . ")";
+		$message = "MinerEU device count notification: " . $settings['alertDevice'] . ": Unexpected device count " . $devcount . " (Expected " . $settings['miningExpDev'] . ")";
 
 		sendEmail($settings, $message, $message);
 
@@ -45,7 +45,7 @@ if ($settings['alertEnable']) {
 
 	if($settings['devicesWarn'] == 1 and $settings['miningExpDev'] == $devcount) {
 
-		$message = "Scripta notification: " . $settings['alertDevice'] . ": Unexpected device count recovered";
+		$message = "MinerEU device  notification: " . $settings['alertDevice'] . ": Unexpected device count recovered";
 
 		sendEmail($settings, $message, $message);
 
@@ -56,12 +56,11 @@ if ($settings['alertEnable']) {
 	}
 
 }
-var_dump($settings);
+//var_dump($settings);
 
 function deviceCount($devs) {
 
 	$devices = 0;
-
 	foreach ($devs as $dev) {
 		if ($dev['MHS5s'] > 0) {
 			$devices++;

@@ -17,7 +17,7 @@ if ($settings['hashWarn'] == 0 and $settings['miningExpHash'] > $hashrate and $s
 		// Send an email if the devices dont match and set the deviceWarn falt
 		
 		
-		$warning = "Scripta notification: " . $settings['alertDevice'] . ": Unexpected hashrate " . $hashrate . " MH/s (Expected " . $settings['miningExpHash'] . " MH/s)";
+		$warning = "MinerEU notification: " . $settings['alertDevice'] . ": Unexpected hashrate " . $hashrate . " MH/s (Expected " . $settings['miningExpHash'] . " MH/s)";
 		
 		sendEmail($settings, $warning, $warning);
 
