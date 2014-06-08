@@ -1,12 +1,14 @@
 [
     {
-        "url": "stratum+tcp:\/\/stratum.scryptguild.com:3333",
-        "user": "minereu_scriptaa2",
-        "pass": "x"
-    },
-    {
         "url": "stratum+tcp:\/\/sea.wafflepool.com:3333",
         "user": "12QsvXeZHdE9Lq9ao7KNhUxDk2oLSEh6f5",
-        "pass": "x"
+        "pass": "x",
+        "priority": 15
+    },
+    {
+        "url": "stratum+tcp:\/\/stratum.scryptguild.com:3333",
+        "user": "minereu_scriptaa2",
+        "pass": "x",
+        "priority": 20
     }
 ]
