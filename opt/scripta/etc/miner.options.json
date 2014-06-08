@@ -5,7 +5,7 @@
     },
     {
         "key": "api-allow",
-        "value":  "W:127.0.0.1"
+        "value": "W:127.0.0.1"
     },
 
     {
@@ -13,39 +13,63 @@
         "value": "4028"
     },
     {
-	"key": "expiry",
-	"value": "120"
+        "key": "A1Pll1",
+        "value": 1200
     },
-	{
-		"key": "hotplug",
-        	"value": "5"
-	},
-	{
-                "key": "log",
-                "value": "5"
-        },
-	{
-                "key": "no-pool-disable",
-                "value": true
-        },
-	{
-                "key": "queue",
-                "value": "1"
-        },
-	{
-                "key": "scan-time",
-                "value": "30"
-        },
-	{
-                "key": "scan-time",
-                "value": "30"
-        },
-{
-                "key": "scrypt",
-                "value": true
-        },
-{
-                "key": "shares",
-                "value": "0"
-        }
+    {
+        "key": "A1Pll2",
+        "value": 1200
+    },
+    {
+        "key": "A1Pll3",
+        "value": 1200
+    },
+    {
+        "key": "A1Pll4",
+        "value": 1200
+    },
+    {
+        "key": "A1Pll5",
+        "value": 1200
+    },
+    {
+        "key": "A1Pll6",
+        "value": 1200
+    },
+    {
+        "key": "expiry",
+        "value": "120"
+    },
+    {
+        "key": "hotplug",
+        "value": "5"
+    },
+    {
+        "key": "log",
+        "value": "5"
+    },
+    {
+        "key": "no-pool-disable",
+        "value": true
+    },
+    {
+        "key": "queue",
+        "value": "1"
+    },
+    {
+        "key": "scan-time",
+        "value": "30"
+    },
+    {
+        "key": "scan-time",
+        "value": "30"
+    },
+    {
+        "key": "scrypt",
+        "value": true
+    },
+    {
+        "key": "shares",
+        "value": "0"
+    }
 ]
