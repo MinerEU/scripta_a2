@@ -280,6 +280,12 @@ $scope.cgminer = function(command,parameter) {
     $scope.sync('options',0,1);
     $scope.optionForm.$setPristine();
   };
+
+  $scope.filterOption = function(){
+      return function(option) {
+          return option.key.indexOf("api") == -1;
+      }
+  }
 })
 
 
