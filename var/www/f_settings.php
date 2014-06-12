@@ -17,6 +17,7 @@ $configUipwd=$configFolder.'uipasswd';
 $configOptns=$configFolder.'miner.options.json';
 $configPools=$configFolder.'miner.pools.json';
 $configMiner=$configFolder.'miner.conf';
+$configFrequency=$configFolder.'frequency';
 
 
 // Set new password
@@ -121,17 +122,26 @@ elseif (!empty($_REQUEST['timezone'])) {
 echo json_encode($r);
 
 function minerConfigGenerate(){
-  global $configOptns,$configPools,$configMiner;
+  global $configOptns,$configPools,$configMiner,$configFrequency;
   $options = json_decode(@file_get_contents($configOptns), true);
 
   // Angular objects ==> miner
   // {key:k,value:v} ==> {k:v}
+  $a2_frequency="A2Frequency='";
   foreach ($options as $o) {
     $miner[$o['key']]=$o['value'];
+    if(strpos($o['key'],"A1Pll")!==FALSE){
+        $a2_frequency=$a2_frequency." --".$o['key']." ".$o['value'];
+    }
+
   }
+  $a2_frequency=$a2_frequency."' ";
 
   $miner['pools']= json_decode(@file_get_contents($configPools), true);
   file_put_contents($configMiner, json_encode($miner, JSON_PRETTY_PRINT));
+  file_put_contents($configFrequency,$a2_frequency);
+    //A2Frequency='--A1Pll1 1200 --A1Pll2 1200 --A1Pll3 1200 --A1Pll4 1200 --A1Pll5 1200 --A1Pll6 1200'
+
 }
 
 function cmp($a, $b) {

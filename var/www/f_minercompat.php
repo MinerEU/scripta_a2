@@ -13,6 +13,7 @@ $configFolder='/opt/scripta/etc/';
 $configMiner=$configFolder.'miner.conf';
 $configPools=$configFolder.'miner.pools.json';
 $configOptns=$configFolder.'miner.options.json';
+$configFrequency=$configFolder.'frequency';
 
 $miner = json_decode(@file_get_contents($configMiner), true);
 

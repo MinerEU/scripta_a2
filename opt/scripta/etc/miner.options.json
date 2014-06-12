@@ -13,6 +13,22 @@
         "value": "4028"
     },
     {
+        "key":"api-mcast",
+        "value":true
+    },
+    {
+        "key":"api-mcast-addr",
+        "value":"0.0.0.0"
+    },
+    {
+        "key":"api-mcast-code",
+        "value":"minereu"
+    },
+    {
+        "key":"api-mcast-code",
+        "value":"minereu"
+    },
+    {
         "key": "A1Pll1",
         "value": 1200
     },
