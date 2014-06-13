@@ -69,10 +69,10 @@ chmod -R +x  /opt/scripta/startup/
 #echo "www-data ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/wwwdata
 #init the graph
 
-echo -e "\n#Minera settings\nminera ALL = (ALL) NOPASSWD: ALL\nwww-data ALL = (ALL) NOPASSWD: ALL" > /etc/sudoers.d/minereu
+##echo -e "\n#Minera settings\nminera ALL = (ALL) NOPASSWD: ALL\nwww-data ALL = (ALL) NOPASSWD: ALL" > /etc/sudoers.d/minereu
 
 su www-data -c "/usr/bin/php5 /opt/scripta/etc/cron.d/5min/hashrate"
 curl -sSfk https://127.0.0.1/f_graph.php
 
-
+/opt/scripta/startup/miner-stop.sh
 echo `date +"%Y-%m-%d %T "`"ALL Done!!!"
