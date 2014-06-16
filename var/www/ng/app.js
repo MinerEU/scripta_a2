@@ -1,7 +1,7 @@
 'use strict';
 
-//if (window.location.protocol != "https:")
- //   window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+if (window.location.protocol != "https:")
+    window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
 
 // Declare app level module which depends on filters, and services
 angular.module('Scripta', ['Scripta.filters', 'Scripta.services', 'Scripta.directives', 'Scripta.controllers'])

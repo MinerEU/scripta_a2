@@ -81,7 +81,10 @@ LTC Donations welcome : Lcb3cy5nPnh3pQWPCpa55Zg8ShZj5kUHYC
   <script src="js/highcharts.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script>
-	$(document).ready(function() {
+      if (window.location.protocol != "https:")
+          window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+
+      $(document).ready(function() {
 		$(document).keypress(function(e) {
 			
 			if(e.which == 13) {
