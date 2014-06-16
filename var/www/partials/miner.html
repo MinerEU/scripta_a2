@@ -81,22 +81,27 @@
       <label>You can get detailed documentation from <a href="https://github.com/ckolivas/cgminer">CGMINER's Github page</a> for the following options</label>
       <form name="optionForm" class="form-horizontal">
           <div class="row">
-              <label class="col-sm-5">Cgminer options</label>
-              <label class="col-sm-2">value</label>
+              <label class="col-sm-3">Cgminer options</label>
+              <label class="col-sm-4">Value</label>
+              <label class="col-sm-2">Description</label>
 
           </div>
-          <div class="form-group" ng-repeat="option in options|filter:filterOption()">
+          <div class="form-group" ng-repeat="option in options">
               <!--<div  ng-show="option.key.indexOf('api')==-1"> -->
-              <div class="col-sm-3"  >
+              <div class="col-sm-2"  >
                   <input type="text" ng-model="option.key" class="form-control" required>
               </div>
-              <div class="col-sm-4"  >
+              <div class="col-sm-3"  >
                   <div class="input-group">
                   <input type="text" ng-model="option.value" class="form-control" required>
                   <div class="input-group-btn">
                       <button type="button" ng-click="optionRemove($index)" title="We suggest you backup before make any changes." class="btn btn-default pull-right">&times;</button>
                   </div>
                   </div>
+
+              </div>
+              <div class="col-sm-6">
+                  <input type="text"  class="form-control" ng-model="option.description"  >
               </div>
 
           </div>
@@ -104,8 +109,6 @@
           <button type="button" class="btn btn-default" ng-click="optionAdd({'key':'x'})">Add Options</button>
           <button type="button" ng-show="optionForm.$dirty && optionForm.$valid" class="btn btn-success" ng-click="optionSave()">Save Options</button>
       </form>
-      <label>Some of the options are hidden as we don't want you to accidently break them,scripta rely on some of the options to work</label>
-      <label>Use <a>A1Pll1-A1Pll6</a> to setup each balde frequency. Over clock is not offically supported. you need to <a href="" ng-click="optionSave()"> save </a> and <a href="" ng-click="cgminerHardCtl('0')">restart</a> CGMINER and wait for 30 sec for the new options to take effect</label>
 
   </div>
 </div>

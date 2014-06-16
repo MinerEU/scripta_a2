@@ -1,91 +1,21 @@
 [
     {
-        "key": "api-listen",
-        "value": true
+        "key": "chips-count",
+        "value": "64",
+        "description": "Zeus miner chip count, Blizzard 6, HurricaneX2 48, HurricaneX3 64 , ThunderX2 96, ThunderX3 128"
     },
     {
-        "key": "api-allow",
-        "value": "W:127.0.0.1"
-    },
-
-    {
-        "key": "api-port",
-        "value": "4028"
+        "key": "ltc-clk",
+        "value": "340"
     },
     {
-        "key":"api-mcast",
-        "value":true
+        "key": "nocheck-golden",
+        "value": "true"
     },
     {
-        "key":"api-mcast-addr",
-        "value":"0.0.0.0"
-    },
-    {
-        "key":"api-mcast-code",
-        "value":"minereu"
-    },
-    {
-        "key":"api-mcast-code",
-        "value":"minereu"
-    },
-    {
-        "key": "A1Pll1",
-        "value": 1200
-    },
-    {
-        "key": "A1Pll2",
-        "value": 1200
-    },
-    {
-        "key": "A1Pll3",
-        "value": 1200
-    },
-    {
-        "key": "A1Pll4",
-        "value": 1200
-    },
-    {
-        "key": "A1Pll5",
-        "value": 1200
-    },
-    {
-        "key": "A1Pll6",
-        "value": 1200
-    },
-    {
-        "key": "expiry",
-        "value": "120"
-    },
-    {
-        "key": "hotplug",
-        "value": "5"
-    },
-    {
-        "key": "log",
-        "value": "5"
-    },
-    {
-        "key": "no-pool-disable",
-        "value": true
-    },
-    {
-        "key": "queue",
-        "value": "1"
-    },
-    {
-        "key": "scan-time",
-        "value": "30"
-    },
-    {
-        "key": "scan-time",
-        "value": "30"
-    },
-    {
-        "key": "scrypt",
-        "value": true
-    },
-    {
-        "key": "shares",
-        "value": "0"
+        "key": "scan-serial",
+        "value": "/dev/ttyUSB0"
     }
+
+
 ]

@@ -48,9 +48,9 @@ cd /
 
 echo `date +"%Y-%m-%d %T "`"installing scripta for A2 miners"
 cd /tmp
-wget --no-check-certificate -O scriptaming.zip  https://github.com/MinerEU/scripta_a2/archive/master.zip
+wget --no-check-certificate -O scriptaming.zip  https://github.com/MinerEU/scripta_a2/archive/zeus.zip
 unzip -o scriptaming.zip
-cd scripta_a2-master/
+cd scripta_a2-zeus/
 cp -fr etc opt var /
 
 rm -fr /opt/scripta/etc/cron.d/5min/inc;
