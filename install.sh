@@ -13,13 +13,6 @@ then
    exit 1
 fi
 
-echo `date +"%Y-%m-%d %T "`"clean up"
-backup_path=/opt/minereu_back$(date +"%Y%m%d%H%M%S")
-mkdir $backup_path
-mv -f /var/www/ $backup_path 2>/dev/null; true
-mv -f /opt/scripta/ $backup_path 2>/dev/null; true
-mv -f /var/log/minereu   $backup_path 2>/dev/null; true
-mkdir -p /var/www
 
 echo `date +"%Y-%m-%d %T "`"prepare dependencies";
 apt-get update
@@ -45,6 +38,15 @@ fi
 cd /
 /etc/init.d/lighttpd restart
 
+
+echo `date +"%Y-%m-%d %T "`"clean up"
+backup_path=/opt/minereu_back$(date +"%Y%m%d%H%M%S")
+mkdir $backup_path
+mv -f /var/www/ $backup_path 2>/dev/null; true
+mv -f /opt/scripta/ $backup_path 2>/dev/null; true
+mv -f /var/log/minereu   $backup_path 2>/dev/null; true
+mkdir -p /var/www
+/etc/init.d/lighttpd restart
 
 echo `date +"%Y-%m-%d %T "`"installing scripta for A2 miners"
 cd /tmp

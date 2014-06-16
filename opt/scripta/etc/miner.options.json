@@ -1,33 +1,5 @@
 [
-    {
-        "key": "api-listen",
-        "value": true
-    },
-    {
-        "key": "api-allow",
-        "value": "W:127.0.0.1"
-    },
 
-    {
-        "key": "api-port",
-        "value": "4028"
-    },
-    {
-        "key":"api-mcast",
-        "value":true
-    },
-    {
-        "key":"api-mcast-addr",
-        "value":"0.0.0.0"
-    },
-    {
-        "key":"api-mcast-code",
-        "value":"minereu"
-    },
-    {
-        "key":"api-mcast-code",
-        "value":"minereu"
-    },
     {
         "key": "A1Pll1",
         "value": 1200
@@ -76,10 +48,7 @@
         "key": "scan-time",
         "value": "30"
     },
-    {
-        "key": "scan-time",
-        "value": "30"
-    },
+
     {
         "key": "scrypt",
         "value": true
