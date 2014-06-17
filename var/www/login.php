@@ -52,7 +52,7 @@ if ( isset($_SESSION['_logged_']) and ($_SESSION['_logged_'] === true) )  {
         <form name="formLogin" id="formLogin" class="form-horizontal"  method="post">
 		<fieldset>
 			<div class="form-group">
-				<label for="userPassword2" class="control-label col-sm-3 col-md-2">Password</label>
+				<label for="userPassword2" class="control-label col-sm-3 col-md-2">Password(default password:minereu)</label>
 				<div class="col-sm-3 col-md-4">
 					<input type="password" placeholder="Password" id="userPassword" name="userPassword"  class="form-control">
 				</div>
