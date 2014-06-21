@@ -87,9 +87,8 @@ if ( !isset($_SESSION['_logged_']) || $_SESSION['_logged_'] === false ) {
           &nbsp;-&nbsp;
           Load {{100*status.pi.load|number:0}}
         </span>
-        <a href='http://www.lateralfactory.com/scripta/'>Scripta</a>, by <a href='http://www.lateralfactory.com'>Lateral Factory</a> under GPLv3 License
+        <a href='https://minereu.com'>MinerEU.com</a>, by <a href='https://MinerEU.com'>MinerEU.com</a>
       </p>
-LTC Donations welcome : Lcb3cy5nPnh3pQWPCpa55Zg8ShZj5kUHYC	
     </div>
   </footer>
   <script src="js/alertify.min.js"></script>

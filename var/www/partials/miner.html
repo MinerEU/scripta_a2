@@ -28,11 +28,11 @@
 					Ordered from gentle to rough.
 				</p>
 				<div class="list-group" ng-show="minerRestart">
-					<a title="This will issue an RPC command to cgminer so it restart itself. no new parameter will be picked up." href="" ng-click="cgminer('restart')" class="list-group-item">Cgminer soft reset (RPC)</a>
-					<!--<a title="Start miner" href="" ng-click="cgminerHardCtl('1')" class="list-group-item">Start</a> -->
-					<a title="Restart miner to take new configuration options. this is to stop the cgminer process and then start this linux process again with interval less than 30 sec. be patient" href="" ng-click="cgminerHardCtl('0')" class="list-group-item">Restart cgminer linux process(30s)</a>
+                    <!--<a title="This will issue an RPC command to cgminer so it restart itself. no new parameter will be picked up." href="" ng-click="cgminer('restart')" class="list-group-item">Cgminer soft reset (RPC)</a>
+                    <!--<a title="Start miner" href="" ng-click="cgminerHardCtl('1')" class="list-group-item">Start</a> -->
+					<a title="Restart miner to take new configuration options. this is to stop the cgminer process and then start this linux process again with interval less than 30 sec. be patient" href="" ng-click="cgminerHardCtl('0')" class="list-group-item">Restart cgminer (take around 30s)</a>
 					<!--<a title="Shutdown your PI (be careful!)" href="" id="link_shutdown" onclick="ctrl_host(1)" class="list-group-item">Shutdown</a> -->
-					<a title="Reboot your PI" href="" id="link_reboot"  onclick="ctrl_host(0)" class="list-group-item">Reboot</a>
+					<a title="Reboot your PI" href="" id="link_reboot"  onclick="ctrl_host(0)" class="list-group-item">Reboot your pi</a>
 				</div>
 			</div>
 		</div>
@@ -85,7 +85,7 @@
               <label class="col-sm-2">value</label>
 
           </div>
-          <div class="form-group" ng-repeat="option in options|filter:filterOption()">
+          <div class="form-group" ng-repeat="option in options">
               <!--<div  ng-show="option.key.indexOf('api')==-1"> -->
               <div class="col-sm-3"  >
                   <input type="text" ng-model="option.key" class="form-control" required>
