@@ -138,7 +138,7 @@
       <td ng-bind="p.BestShare"></td>
         <td>
             <div class="input-group-btn">
-                <button type="button" ng-click="cgminer('switchpool','0{{p.POOL}}')" ng-class="{'btn btn-default':p.StratumActive,ng-hide:!p.StratumActive}" >&#10003;</button>
+                <button type="button" ng-click="cgminer('switchpool','{{p.POOL}}')" ng-class="{'btn btn-default':p.StratumActive,ng-hide:!p.StratumActive}" >&#10003;</button>
             </div>
 
         </td>

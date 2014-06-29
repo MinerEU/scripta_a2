@@ -17,7 +17,7 @@ $configUipwd=$configFolder.'uipasswd';
 $configOptns=$configFolder.'miner.options.json';
 $configPools=$configFolder.'miner.pools.json';
 $configMiner=$configFolder.'miner.conf';
-$configFrequency=$configFolder.'frequency';
+$configFrequency=$configFolder.'additional_paramter';
 
 
 // Set new password
