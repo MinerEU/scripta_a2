@@ -181,6 +181,7 @@
 
 </form>
 
+<!--
 
 <form name="formnetwork" class="form-horizontal clearfix">
     <fieldset ng-show="settings.remoteEnable">
@@ -203,44 +204,45 @@
                 <input type="checkbox" id="donateEnable" ng-model="settings.donateEnable"> Enable Donation
             </label> -->
 
+<!--
+      </div>
 
-        </div>
+      <div class="form-group" ng-show="!settings.enableDHCP">
+          <label for="ipAddress" class="control-label col-sm-3 col-md-2"> IP Address</label>
+          <div class="col-sm-3 col-md-4">
+              <div class="input-group">
+                  <input type="text" id="ipAddress" ng-model="settings.ip" class="form-control" required>
+                  <span class="input-group-addon">i.e. 192.168.1.2</span>
+              </div>
+          </div>
 
-        <div class="form-group" ng-show="!settings.enableDHCP">
-            <label for="ipAddress" class="control-label col-sm-3 col-md-2"> IP Address</label>
-            <div class="col-sm-3 col-md-4">
-                <div class="input-group">
-                    <input type="text" id="ipAddress" ng-model="settings.ip" class="form-control" required>
-                    <span class="input-group-addon">i.e. 192.168.1.2</span>
-                </div>
-            </div>
+          <label for="subnetmask" class="control-label col-sm-3 col-md-2">Subnet mask</label>
+          <div class="col-sm-3 col-md-4">
+              <div class="input-group">
+                  <input type="text" id="subnetmask" ng-model="settings.subnetmask" class="form-control" required>
+                  <span class="input-group-addon">i.e. 255.255.255.0</span>
+              </div>
+          </div>
 
-            <label for="subnetmask" class="control-label col-sm-3 col-md-2">Subnet mask</label>
-            <div class="col-sm-3 col-md-4">
-                <div class="input-group">
-                    <input type="text" id="subnetmask" ng-model="settings.subnetmask" class="form-control" required>
-                    <span class="input-group-addon">i.e. 255.255.255.0</span>
-                </div>
-            </div>
+          <label for="gateway" class="control-label col-sm-3 col-md-2">Gateway</label>
+          <div class="col-sm-3 col-md-4">
+              <div class="input-group">
+                  <input type="text" id="gateway" ng-model="settings.gateway" class="form-control" required>
+                  <span class="input-group-addon">i.e. 192.168.1.1</span>
+              </div>
+          </div>
 
-            <label for="gateway" class="control-label col-sm-3 col-md-2">Gateway</label>
-            <div class="col-sm-3 col-md-4">
-                <div class="input-group">
-                    <input type="text" id="gateway" ng-model="settings.gateway" class="form-control" required>
-                    <span class="input-group-addon">i.e. 192.168.1.1</span>
-                </div>
-            </div>
-
-            <label for="dnsserver" class="control-label col-sm-3 col-md-2">DNS Server</label>
-            <div class="col-sm-3 col-md-4">
-                <div class="input-group">
-                    <input type="text" id="dnsserver" ng-model="settings.dnsserver" class="form-control" required>
-                    <span class="input-group-addon">i.e. 8.8.8.8</span>
-                </div>
-            </div>
-        </div>
-        </div>
-    </fieldset>
+          <label for="dnsserver" class="control-label col-sm-3 col-md-2">DNS Server</label>
+          <div class="col-sm-3 col-md-4">
+              <div class="input-group">
+                  <input type="text" id="dnsserver" ng-model="settings.dnsserver" class="form-control" required>
+                  <span class="input-group-addon">i.e. 8.8.8.8</span>
+              </div>
+          </div>
+      </div>
+      </div>
+  </fieldset>
 
 
 </form>
+-->
