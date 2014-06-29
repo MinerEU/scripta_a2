@@ -147,16 +147,30 @@ function minerConfigGenerate(){
     foreach ($tmp_pools as $key => $pool) {
         if($load_balance_flag){
             $pool["quota"]=$pool["quota"].";".$pool["url"]."";
+            unset($pool->url);
         } else{
             unset($pool->quota);
         }
+
+
+        $new_pool=[];
+        foreach ($pool as $key1 => $value) {
+            if($load_balance_flag){
+                if($key1=="url")continue;
+            }else{
+                if($key1=="quota")continue;
+            }
+            $new_pool[$key1]=$value;
+        }
+
+        //var_dump($new_pool);
         //}
-        $tmp_pools[$key]=$pool;
+        $tmp_pools[$key]=$new_pool;
 
     }
     //var_dump($tmp_pools[0]);
     $miner['pools']=$tmp_pools;
-    file_put_contents($configMiner, json_encode($miner, JSON_PRETTY_PRINT));
+    file_put_contents($configMiner, json_encode($miner, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE));
     file_put_contents($configFrequency,$additional_parameter);
     //AdditionalParameter='--A1Pll1 1200 --A1Pll2 1200 --A1Pll3 1200 --A1Pll4 1200 --A1Pll5 1200 --A1Pll6 1200'
 
