@@ -75,9 +75,12 @@
 
 <form name="formMining" class="form-horizontal clearfix">
   <h3>Mining</h3>
+    <p class="clearfix text-left">
+        <button type="button" class="btn btn-success" ng-click="sync('settings',settings,1);formMining.$setPristine()" ng-show="formMining.$dirty">Save settings</button>
+    </p>
   <fieldset>
     <div class="form-group">
-      <label for="remoteEnable" class="control-label col-sm-3 col-md-2">Services</label>
+      <label for="recoverEnable" class="control-label col-sm-3 col-md-2">Services</label>
       <div class="col-sm-9 col-md-10">
         <!-- <label class="checkbox-inline"> -->
         <!--  <input type="checkbox" id="remoteEnable" ng-model="settings.remoteEnable"> Enable Remote control -->
@@ -121,51 +124,17 @@
       </div>
     </div>
   </fieldset>
-  <p class="clearfix text-right">
-    <button type="button" class="btn btn-success" ng-click="sync('settings',settings,1);formMining.$setPristine()" ng-show="formMining.$dirty">Save settings</button>
-  </p>
+
 </form>
 
 
 <form name="formMods" class="form-horizontal clearfix">
-  <fieldset ng-show="settings.remoteEnable">
-    <h3>Remote control</h3>
-    <div class="form-group" ng-show="settings.remoteEnable">
-      <label for="remotePriv" class="control-label col-sm-3 col-md-2">Private key</label>
-      <div class="col-sm-9 col-md-10">
-        <input type="text" id="remotePriv" ng-model="settings.remotePriv" class="form-control">
-        <p class="help-block" ng-show="settings.userHelp">
-          Use this key to let a Remote Control server authenticate to your Scripta.
-        </p>
-      </div>
-    </div>
-  </fieldset>
-  <!--
-    <h3>Frequency</h3>
-    <fieldset>
-		<div class="form-group">
-			<label for="remoteEnable" class="control-label col-sm-3 col-md-2">Enable</label>
-			<div class="col-sm-9 col-md-10">
-				<label class="checkbox-inline">
-					<input type="checkbox" id="donateEnable" ng-model="settings.donateEnable"> 
-				</label>
-			</div>
-		</div>
-	</fieldset>
-	<fieldset ng-show="settings.donateEnable"> 
-		<div class="form-group" ng-show="settings.donateEnable"> 
-		  <label for="donateAmount" class="control-label col-sm-3 col-md-2">Donation minutes</label> 
-		  <div class="col-sm-9 col-md-10"> 
-			<input type="number" id="donateAmount" ng-model="settings.donateAmount" class="form-control"> 
-			<p class="help-block" ng-show="settings.userHelp"> 
-			  Please donate! 
-			</p> 
-		  </div> 
-		</div> 
-	</fieldset> 
-  -->
+
   <fieldset ng-show="settings.alertEnable">
     <h3>E-mail alerts</h3>
+      <p class="clearfix text-left">
+          <button type="button" class="btn btn-success" ng-click="sync('settings',settings,1);formMods.$setPristine()" ng-show="formMods.$dirty">Save settings</button>
+      </p>
     <div class="form-group">
       <label for="alertDevice" class="control-label col-sm-3 col-md-2">Device Name</label>
       <div class="col-sm-9 col-md-10">
@@ -209,7 +178,69 @@
     </div>
   </fieldset>
    
-  <p class="clearfix text-right">
-    <button type="button" class="btn btn-success" ng-click="sync('settings',settings,1);formMods.$setPristine()" ng-show="formMods.$dirty">Save settings</button>
-  </p>
+
+</form>
+
+
+<form name="formnetwork" class="form-horizontal clearfix">
+    <fieldset ng-show="settings.remoteEnable">
+        <h3>Networking</h3>
+        <p class="clearfix text-left">
+            <button type="button" class="btn btn-success" ng-click="sync('settings',settings,1);formMods.$setPristine()" ng-show="formnetwork.$dirty">Save settings</button>
+        </p>
+        <label for="enableDHCP" class="control-label col-sm-3 col-md-2"> DHCP</label>
+        <div class="col-sm-9 col-md-10">
+
+            <label class="checkbox-inline">
+                <input type="checkbox" id="enableDHCP" ng-model="settings.enableDHCP"> Enable DHCP
+            </label>
+            <!--
+             <label class="checkbox-inline">
+                 <input type="checkbox" id="alertEnable" ng-model="settings.alertEnable"> E-mail alerts
+             </label>
+           -->
+            <!-- <label class="checkbox-inline">
+                <input type="checkbox" id="donateEnable" ng-model="settings.donateEnable"> Enable Donation
+            </label> -->
+
+
+        </div>
+
+        <div class="form-group" ng-show="!settings.enableDHCP">
+            <label for="ipAddress" class="control-label col-sm-3 col-md-2"> IP Address</label>
+            <div class="col-sm-3 col-md-4">
+                <div class="input-group">
+                    <input type="text" id="ipAddress" ng-model="settings.ip" class="form-control" required>
+                    <span class="input-group-addon">i.e. 192.168.1.2</span>
+                </div>
+            </div>
+
+            <label for="subnetmask" class="control-label col-sm-3 col-md-2">Subnet mask</label>
+            <div class="col-sm-3 col-md-4">
+                <div class="input-group">
+                    <input type="text" id="subnetmask" ng-model="settings.subnetmask" class="form-control" required>
+                    <span class="input-group-addon">i.e. 255.255.255.0</span>
+                </div>
+            </div>
+
+            <label for="gateway" class="control-label col-sm-3 col-md-2">Gateway</label>
+            <div class="col-sm-3 col-md-4">
+                <div class="input-group">
+                    <input type="text" id="gateway" ng-model="settings.gateway" class="form-control" required>
+                    <span class="input-group-addon">i.e. 192.168.1.1</span>
+                </div>
+            </div>
+
+            <label for="dnsserver" class="control-label col-sm-3 col-md-2">DNS Server</label>
+            <div class="col-sm-3 col-md-4">
+                <div class="input-group">
+                    <input type="text" id="dnsserver" ng-model="settings.dnsserver" class="form-control" required>
+                    <span class="input-group-addon">i.e. 8.8.8.8</span>
+                </div>
+            </div>
+        </div>
+        </div>
+    </fieldset>
+
+
 </form>

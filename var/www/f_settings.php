@@ -127,20 +127,38 @@ function minerConfigGenerate(){
 
   // Angular objects ==> miner
   // {key:k,value:v} ==> {k:v}
-  $a2_frequency="A2Frequency='";
+  $load_balance_flag=false;
+  $additional_parameter="AdditionalParameter='";
   foreach ($options as $o) {
     $miner[$o['key']]=$o['value'];
     if(strpos($o['key'],"A1Pll")!==FALSE){
-        $a2_frequency=$a2_frequency." --".$o['key']." ".$o['value'];
+        $additional_parameter=$additional_parameter." --".$o['key']." ".$o['value'];
     }
+      if(strpos($o['key'],"load-balance")!==FALSE){
+          $load_balance_flag=true;
+          $additional_parameter=$additional_parameter." --".$o['key']." ";
+      }
 
   }
-  $a2_frequency=$a2_frequency."' ";
+  $additional_parameter=$additional_parameter."' ";
 
-  $miner['pools']= json_decode(@file_get_contents($configPools), true);
-  file_put_contents($configMiner, json_encode($miner, JSON_PRETTY_PRINT));
-  file_put_contents($configFrequency,$a2_frequency);
-    //A2Frequency='--A1Pll1 1200 --A1Pll2 1200 --A1Pll3 1200 --A1Pll4 1200 --A1Pll5 1200 --A1Pll6 1200'
+    $tmp_pools = json_decode(@file_get_contents($configPools), true);
+
+    foreach ($tmp_pools as $key => $pool) {
+        if($load_balance_flag){
+            $pool["quota"]=$pool["quota"].";".$pool["url"]."";
+        } else{
+            unset($pool->quota);
+        }
+        //}
+        $tmp_pools[$key]=$pool;
+
+    }
+    //var_dump($tmp_pools[0]);
+    $miner['pools']=$tmp_pools;
+    file_put_contents($configMiner, json_encode($miner, JSON_PRETTY_PRINT));
+    file_put_contents($configFrequency,$additional_parameter);
+    //AdditionalParameter='--A1Pll1 1200 --A1Pll2 1200 --A1Pll3 1200 --A1Pll4 1200 --A1Pll5 1200 --A1Pll6 1200'
 
 }
 

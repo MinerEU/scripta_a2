@@ -44,21 +44,26 @@
     </p>
     <form name="poolForm" class="form-horizontal">
       <div class="row">
-        <label class="col-sm-5">URL</label>
+        <label class="col-sm-4">URL</label>
         <label class="col-sm-2">User</label>
-        <label class="col-sm-2">Pass</label>
+        <label class="col-sm-1">Pass</label>
+        <label class="col-sm-2" ng-show="quotaEnabled()">Quota</label>
+
         <label class="col-sm-2">Priority</label>
       </div>
       <div class="form-group" ng-repeat="pool in pools">
-        <div class="col-sm-5">
+        <div class="col-sm-4">
           <input type="text" ng-model="pool.url" class="form-control" required>
         </div>
         <div class="col-sm-2">
           <input type="text" ng-model="pool.user" class="form-control" required>
         </div>
-      <div class="col-sm-2">
+      <div class="col-sm-1">
           <input type="text" ng-model="pool.pass" class="form-control" required>
       </div>
+          <div class="col-sm-2"  ng-show="quotaEnabled()">
+              <input type="text" ng-model="pool.quota" class="form-control" required>
+          </div>
         <div class="col-sm-2">
           <div class="input-group">
             <input type="text" ng-model="pool.priority" class="form-control" required>

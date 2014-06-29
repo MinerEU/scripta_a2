@@ -96,6 +96,7 @@ if ( !isset($_SESSION['_logged_']) || $_SESSION['_logged_'] === false ) {
   <script src="js/highcharts.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/angular.min.js"></script>
+  <script src="js/jquery.mask.min.js"></script>
 
   <script src="ng/app.js"></script>
   <script src="ng/services.js"></script>
@@ -141,7 +142,30 @@ if ( !isset($_SESSION['_logged_']) || $_SESSION['_logged_'] === false ) {
 				alert('msg: '+data);
                         });
                 }
-	}
+	};
+
+    $(document).ready(function() {
+        $('#maskForm')
+            .bootstrapValidator({
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+                    ipAddress: {
+                        validators: {
+                            ip: {
+                                message: 'The IP address is not valid'
+                            }
+                        }
+                    }
+                }
+            })
+            .find('[name="ipAddress"]').mask('099.099.099.099');
+    });
+
+
   </script>
 </body>
 </html>

@@ -286,6 +286,20 @@ $scope.cgminer = function(command,parameter) {
           return option.key.indexOf("api") == -1;
       }
   }
+
+  $scope.quotaEnabled = function(){
+    var flag=false;
+    var length = $scope.options.length;
+    for (var i = 0 ; i <length  ;i++) {
+        if($scope.options[i]["key"]=="load-balance" && $scope.options[i]["value"]=="true"){
+            flag=true;
+            break;
+        }
+    }
+    return flag;
+
+  }
+
 })
 
 
